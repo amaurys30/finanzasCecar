@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+}
+.divPrincipal {
+    display: flex;
+    flex-direction: column;
+}
+
+.divMenuInicioSecion {
+    display: flex;
+    margin-left: 10px;
+}
+
+.divLogo {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 40px 45px;
+    margin: 10px;
+    h2{
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-size: 21px;
+    }
+    p{
+        margin-top: 3px;
+        font-size: 17px;
+    }
+}
+.divLogo img {
+    width: 70px;
+    height: 70px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin-right: 6px;
+}
+.botonInicioSeccion{
+    margin-left: auto;
+    button{
+        margin: 30px;
+        width: 130px;
+        height: 50px;
+        border: none;
+        border-radius: 30px;
+        color: white;
+        background-color: rgb(51, 115, 233);
+        font-weight: bold;
+    }
+}
+
+/* contenido de pagina */
+.divContenido{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.bienvenido{
+    align-self: center;
+}
+
+.divDescripcion{
+    background-image: url(../recursos/imagenes/fondo.jpg);
+    background-size: 70% 100%;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 450px;
+    margin-top: 50px;
+    margin-right: 100px;
+}
+.parrafo{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    align-items: center;
+    font-size: large;
+    font-style: italic;
+}
+
+.invitacion{
+    font-size: 30px;
+    align-self: center;
+}
+
+/* pie de pagina */
+
+footer{
+ display: flex;
+ background-color: rgb(27, 27, 27);
+ justify-content: space-between;
+ align-items: flex-end;
+ padding-bottom: 25px;
+}
+
+.paginasSeguir{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    margin-left: 40px;
+    font-size: large;
+}
+.imagenesPaginas{
+    display: flex;
+    gap: 10px;
+}
+.imagenesPaginas img{
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+}
+.Copyright{
+    color: white;
+}
+.Copyright p{
+    margin-bottom: 0;
+}
+    
+.imagenHelp{
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    margin-right: 40px;
+}
+
+/* formulario de inici de sesion */
+.formularioInicioSeccion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    gap: 10px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 30px;
+}
