@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Tipos de ingresos y egresos</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <script>
+        //revisar esta funcion y adaptarla para el formulario
+        function adicionarNombreATabla() {
+            var nombreTematico = document.getElementById('nombreTematico')
+
+            if (nombreTematico.value.length > 0) {
+                var tablaNombresTematicos = document.getElementById('tablaParticipantes')
+                var fila = tablaNombresTematicos.insertRow(-1)//para agregar al inicio 0
+                //se configura la columna con el nombre
+                var columnaUno = fila.insertCell(0)
+                var textoColumna = document.createTextNode(nombreTematico.value)
+                columnaUno.appendChild(textoColumna)
+
+                nombreTematico.value = ''
+
+                //se configura la columna con los botones
+
+                var botonEliminar = document.createElement('button')
+                botonEliminar.textContent = 'Eliminar'
+                botonEliminar.addEventListener('click', function () {
+                    fila.parentNode.removeChild(fila)
+                })
+
+                var columnaDos = fila.insertCell(1)
+                columnaDos.appendChild(botonEliminar)
+
+            } else {
+                alert('Debe digitar un nombre para ser adicionado')
+            }
+            nombreTematico.focus()
+        }
+
+    </script>
+</head>
+<body>
+    
+    <div>
+        <div class="divMenuInicioSecion">
+            <div class="divLogo">
+                <img src="../recursos/imagenes/logo empresa.jpeg" alt="logo contatech">
+            </div>
+            <div class="contenedorAvatarRequisito">
+                <button class="botonAvatar" onclick="window.location.href='../html/temayavatar.html'"></button>
+            </div>
+        </div>
+
+        <h1 class="tituloRequisito">Gestion de Tipos de ingresos y egresos</h1>
+        <div class="contenedorFormulario">
+            <label for="">Codigo</label>
+            <input type="text">
+            <label for="">Nombre de tipo</label>
+            <input type="text">
+            <label for="">Descripción</label>
+            <textarea class="descripcionTipos" name="" id=""></textarea>
+            <label for="">Tipo</label>
+            <select class="seleccionTipo" name="" id="">
+                <option value="ingreso">Ingreso</option>
+                <option value="egreso">Egreso</option>
+            </select>
+            <label for="">Categoria</label>
+            <input type="text">
+
+            <button>Agregar tipo</button>
+            <button>Buscar</button>
+        </div>
+
+        <h2 class="tituloRequisito">Tipos agregados</h2>
+        
+        <div>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td>Codigo</td>
+                        <td>Nombre de tipo</td>
+                        <td>Descripcion</td>
+                        <td>Tipo</td>
+                        <td>Categoria</td>
+                        <td>Acciones</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <div class="paginasSeguir">
+                <p>Síganos</p>
+                <div class="imagenesPaginas">
+                    <img src="../recursos/imagenes/facebook.jpg" alt="logo facebook">
+                    <img src="../recursos/imagenes/youtube.png" alt="logo youtube">
+                    <img src="../recursos/imagenes/twiter.jpg" alt="logo twiter">
+                </div>
+            </div>
+            <div class="Copyright">
+                <p>Copyright © 2024 Paduca - Contatech</p>
+            </div>
+            <div>
+                <img class="imagenHelp" src="../recursos/imagenes/help.jpg" alt="logo ayuda">
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
