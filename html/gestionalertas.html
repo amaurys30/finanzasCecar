@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/estilos.css">
     <script src="../js/gestionalertas.js"></script>
 </head>
-<body>
+<body id="body">
     
     
     <div>
@@ -69,6 +69,31 @@
 
     <script>
         listarAlertas()
+    </script>
+    <audio id="alarmSound" src="../recursos/imagenes/ringtones-pato-donald.mp3" preload="auto"></audio>
+
+    <script>
+
+        // Function to check and trigger alarms
+        function verificarAlarmas() {
+            const alarmas = JSON.parse(localStorage.getItem("alertas") || "[]");
+            const now = new Date();
+
+            alarmas.forEach((alarma, index) => {
+                const alarmDateTime = new Date(alarma.dateTime);
+                if (now >= alarmDateTime) {
+                    const alarmSound = document.getElementById('alarmSound');
+                    alarmSound.play();
+                    // Remove the alarm from the list once it has triggered
+                    alarmas.splice(index, 1);
+                    localStorage.setItem("alertas", JSON.stringify(alarmas));
+                }
+            });
+        }
+
+
+        // Set an interval to check alarms every minute
+        setInterval(verificarAlarmas, 60000);
     </script>
 
 </body>

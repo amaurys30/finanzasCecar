@@ -75,13 +75,13 @@ function actualizarCuenta() {
 }
 
 function eliminarTransaccion() {
-    var cuentasBancarias = JSON.parse(localStorage.getItem("cuentasBancarias") || "[]");
+    var transacciones = JSON.parse(localStorage.getItem("transacciones") || "[]");
 
-    var numeroDeCuenta = document.getElementById("numeroDeCuenta").value;
+    var fechaTransaccion = document.getElementById("fechaTransaccion").value;
 
     var indiceEvento = -1;
-    for (let i = 0; i < cuentasBancarias.length; i++) {
-        if (cuentasBancarias[i].numeroDeCuenta == numeroDeCuenta) {
+    for (let i = 0; i < transacciones.length; i++) {
+        if (transacciones[i].fechaTransaccion == fechaTransaccion) {
             indiceEvento = i;
             break;
         }
@@ -89,11 +89,11 @@ function eliminarTransaccion() {
 
     if (indiceEvento !== -1) {
         //localStorage.setItem("eventos", JSON.stringify(eventos));
-        var confirmacion = confirm("¿Está seguro de que desea eliminar esta cuenta?");
+        var confirmacion = confirm("¿Está seguro de que desea eliminar esta historia de transaccion?");
         if (confirmacion) {
-            cuentasBancarias.splice(indiceEvento, 1);
-            localStorage.setItem("cuentasBancarias", JSON.stringify(cuentasBancarias));
-            nuevaCuentaBancaria()
+            transacciones.splice(indiceEvento, 1);
+            localStorage.setItem("transacciones", JSON.stringify(transacciones));
+            nuevaTransaccion()
         }
     }
 }
@@ -164,8 +164,8 @@ function listarTransacciones() {
         botonEliminar.textContent = 'Eliminar'
         botonEliminar.addEventListener('click', function () {
             var filaActual = this.parentNode.parentNode;
-            var numeroDeCuenta = filaActual.cells[0].textContent;
-            document.getElementById('numeroDeCuenta').value = numeroDeCuenta
+            var fechaTransaccion = filaActual.cells[4].textContent;
+            document.getElementById('fechaTransaccion').value = fechaTransaccion
             eliminarTransaccion()
             fila.parentNode.removeChild(fila)
         })
@@ -233,8 +233,8 @@ function adicionarTransaccion() {
         botonEliminar.textContent = 'Eliminar'
         botonEliminar.addEventListener('click', function () {
             var filaActual = this.parentNode.parentNode;
-            var numeroDeCuenta = filaActual.cells[0].textContent;
-            document.getElementById('numeroDeCuenta').value = numeroDeCuenta
+            var fechaTransaccion = filaActual.cells[4].textContent;
+            document.getElementById('fechaTransaccion').value = fechaTransaccion
             eliminarTransaccion()
             fila.parentNode.removeChild(fila)
         })

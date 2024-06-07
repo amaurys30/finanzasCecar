@@ -5,15 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temas y avatar</title>
     <link rel="stylesheet" href="../css/estilos.css">
+
+    <script>
+        function modificarBotonOscuro() {
+            var body = document.getElementById("body")
+            body.setAttribute("class", "modoOscuro");
+        }
+    </script>
 </head>
-<body>
+<body id="body">
     
     <div>
-        <div>
-            <h1>Temas y avatar</h1>
-        </div>
-        
-        <div>
+
+        <div class="contenedorTemaAvatar">
+            <div class="contenedorTemas">
+                <h2>Temas:</h2>
+                <button class="botonOscuro" onclick="modificarBotonOscuro()">Oscuro</button>
+                <button class="botonClaro">Claro</button>
+            </div>
+            
+            <div>
+                <h2>Avatar</h2>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
         </div>
 
         <footer>

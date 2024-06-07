@@ -300,3 +300,41 @@ footer {
 .botonRecomendacion{
    width: 100px;
 }
+
+/* temas y avatar */
+
+.contenedorTemaAvatar{
+    background-color: #a9aaa8;
+    
+}
+.contenedorTemas{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    font-size: larger;
+    padding-top: 60px;
+    align-items: center;
+}
+
+.botonOscuro{
+    width: 120px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+}
+
+.botonClaro{
+    width: 120px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+}
+
+/* modo oscuro */
+.modoOscuro {
+    
+    background-color: black;
+    color: white;
+}
