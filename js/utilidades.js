@@ -24,5 +24,28 @@ function nuevo() {
     usuario.value = ""
     password.value = ""
     usuario.focus()
-
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var cuentasSelect = document.getElementById('cuentaBancaria');
+    var cuentasSelectTipo = document.getElementById('tipoIngresoEgreso');
+    
+    // Obtener las cuentas bancarias desde el localStorage
+    var cuentasBancarias = JSON.parse(localStorage.getItem('cuentasBancarias')) || [];
+    var tiposIngresosyEgresos = JSON.parse(localStorage.getItem('tiposIngresosyEgresos')) || [];
+    
+    // Agregar cada cuenta bancaria como una opción en el select
+    cuentasBancarias.forEach(function(cuenta) {
+        var option = document.createElement('option');
+        option.value = cuenta.numeroDeCuenta;
+        option.textContent = cuenta.numeroDeCuenta;
+        cuentasSelect.appendChild(option);
+    });
+
+    tiposIngresosyEgresos.forEach(function(tipo) {
+        var option = document.createElement('option');
+        option.value = tipo.nombreDeTipo;
+        option.textContent = tipo.nombreDeTipo;
+        cuentasSelectTipo.appendChild(option);
+    });
+});

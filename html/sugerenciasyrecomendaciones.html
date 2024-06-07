@@ -18,12 +18,20 @@
             </div>
         </div>
 
-        <div>
-            <h1>Sugerencias y recomendaciones</h1>
-        </div>
-        
-        <div>
+        <h1 class="tituloRequisito">Sugerencias y recomendaciones</h1>
+        <div class="contenedorFormulario">
+            <label for="">Nombre de usuario</label>
+            <input id="tipoAlerta" type="text">
+            <label for="">correo electronico</label>
+            <input id="tipoAlerta" type="text">
+            <label for="">Asunto</label>
+            <input id="tipoAlerta" type="text">
+            <label for="">Contenido</label>
+            <input id="tipoAlerta" type="text">
+            <label for="">Fecha y hora de mensaje</label>
+            <input type="datetime-local" id="fechayHoraAlerta">
 
+            <button style="height: 30px;" onclick="guardarAlerta()">Enviar recomendacion</button>
         </div>
 
         <footer>
@@ -43,6 +51,10 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        // listarAlertas()
+    </script>
 
 </body>
 </html>

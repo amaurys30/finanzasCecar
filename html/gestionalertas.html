@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alertas</title>
     <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/gestionalertas.js"></script>
 </head>
 <body>
+    
     
     <div>
         <div class="divMenuInicioSecion">
@@ -18,12 +20,33 @@
             </div>
         </div>
 
-        <div>
-            <h1>Alertas</h1>
-        </div>
-        
-        <div>
+        <h1 class="tituloRequisito">Alertas</h1>
+        <div class="contenedorFormulario">
+            <label for="">Tipo de alerta</label>
+            <input id="tipoAlerta" type="text">
+            <label for="">Fecha y hora de alerta</label>
+            <input type="datetime-local" id="fechayHoraAlerta">
+            <label for="">Descripción de alerta</label>
+            <textarea class="descripcionTipos" name="" id="descripcionAlerta"></textarea>
 
+            <button onclick="guardarAlerta()">Agregar Alerta</button>
+            <button onclick="consultarAlerta()">Buscar por fecha</button>
+            <button onclick="actualizarAlerta()">Actualizar</button>
+        </div>
+
+        <h2 class="tituloRequisito">Alertas configuradas</h2>
+        
+        <div class="contenedorTablaTipo">
+            <table id="tablaAlertas" border="1">
+                <tbody>
+                    <tr>
+                        <td>Tipo de alerta</td>
+                        <td>Fecha y hora</td>
+                        <td>Descripcion</td>
+                        <td>Acciones</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <footer>
@@ -43,6 +66,10 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        listarAlertas()
+    </script>
 
 </body>
 </html>

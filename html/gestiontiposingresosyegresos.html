@@ -5,40 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de Tipos de ingresos y egresos</title>
     <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../js/gestionTiposIngresosyEgresos.js"></script>
 
-    <script>
-        //revisar esta funcion y adaptarla para el formulario
-        function adicionarNombreATabla() {
-            var nombreTematico = document.getElementById('nombreTematico')
-
-            if (nombreTematico.value.length > 0) {
-                var tablaNombresTematicos = document.getElementById('tablaParticipantes')
-                var fila = tablaNombresTematicos.insertRow(-1)//para agregar al inicio 0
-                //se configura la columna con el nombre
-                var columnaUno = fila.insertCell(0)
-                var textoColumna = document.createTextNode(nombreTematico.value)
-                columnaUno.appendChild(textoColumna)
-
-                nombreTematico.value = ''
-
-                //se configura la columna con los botones
-
-                var botonEliminar = document.createElement('button')
-                botonEliminar.textContent = 'Eliminar'
-                botonEliminar.addEventListener('click', function () {
-                    fila.parentNode.removeChild(fila)
-                })
-
-                var columnaDos = fila.insertCell(1)
-                columnaDos.appendChild(botonEliminar)
-
-            } else {
-                alert('Debe digitar un nombre para ser adicionado')
-            }
-            nombreTematico.focus()
-        }
-
-    </script>
 </head>
 <body>
     
@@ -55,27 +23,29 @@
         <h1 class="tituloRequisito">Gestion de Tipos de ingresos y egresos</h1>
         <div class="contenedorFormulario">
             <label for="">Codigo</label>
-            <input type="text">
+            <input id="codigo" type="text">
             <label for="">Nombre de tipo</label>
-            <input type="text">
+            <input id="nombreDeTipo" type="text">
             <label for="">Descripción</label>
-            <textarea class="descripcionTipos" name="" id=""></textarea>
+            <textarea class="descripcionTipos" name="" id="descripcion"></textarea>
             <label for="">Tipo</label>
-            <select class="seleccionTipo" name="" id="">
+            <select class="seleccionTipo" name="" id="tipo">
                 <option value="ingreso">Ingreso</option>
                 <option value="egreso">Egreso</option>
             </select>
             <label for="">Categoria</label>
-            <input type="text">
+            <input type="text" id="categoria">
 
-            <button>Agregar tipo</button>
-            <button>Buscar</button>
+            <button onclick="guardarTipo()">Agregar tipo</button>
+            <button onclick="consultarTipo()">Buscar</button>
+            <button onclick="actualizarTipo()">Actualizar</button>
+
         </div>
 
         <h2 class="tituloRequisito">Tipos agregados</h2>
         
-        <div>
-            <table border="1">
+        <div class="contenedorTablaTipo">
+            <table id="tiposDeIngresoyEgreso" border="1">
                 <tbody>
                     <tr>
                         <td>Codigo</td>
@@ -106,6 +76,10 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        listarTipo()
+    </script>
 
 </body>
 </html>
